@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.MainController">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="文件">
+            <items>
+                <MenuItem mnemonicParsing="false" onAction="#openPic" text="打开图片" />
+                <MenuItem mnemonicParsing="false" onAction="#saveEffect" text="保存更改" />
+                <SeparatorMenuItem mnemonicParsing="false" />
+                <MenuItem mnemonicParsing="false" text="退出" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="帮助">
+            <items>
+              <MenuItem mnemonicParsing="false" text="关于" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <BorderPane layoutY="25.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <bottom>
+            <TabPane prefHeight="146.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+              <tabs>
+                <Tab text="调整">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Slider fx:id="sliderBrightness" layoutX="230.0" layoutY="15.0" />
+                              <Label layoutX="150.0" layoutY="15.0" text="亮度" />
+                              <Slider fx:id="sliderContrast" layoutX="230.0" layoutY="45.0" />
+                              <Label layoutX="150.0" layoutY="45.0" text="对比度" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                <Tab text="色彩平衡">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <Slider fx:id="sliderRed" layoutX="230.0" layoutY="15.0" />
+                               <Label layoutX="150.0" layoutY="15.0" text="Red" />
+                              <Slider fx:id="sliderGreen" layoutX="230.0" layoutY="45.0" />
+                               <Label layoutX="150.0" layoutY="45.0" text="Green" />
+                              <Slider fx:id="sliderBlue" layoutX="230.0" layoutY="75.0" />
+                               <Label layoutX="150.0" layoutY="75.0" text="Blue" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+                  <Tab text="图像增强">
+                    <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <CheckBox fx:id="checkBoxNegative" layoutX="260.0" layoutY="15.0" mnemonicParsing="false" text="负片" />
+                              <CheckBox fx:id="checkBoxSharp" layoutX="260.0" layoutY="45.0" mnemonicParsing="false" text="锐化（拉普拉斯算子）" />
+                              <CheckBox fx:id="checkBoxHE" layoutX="260.0" layoutY="75.0" mnemonicParsing="false" text="直方图均衡化" />
+                           </children></AnchorPane>
+                    </content>
+                  </Tab>
+                  <Tab text="滤镜">
+                     <content>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="150.0" prefWidth="512.0">
+                                 <children>
+                                    <CheckBox fx:id="checkBoxDistorting" layoutX="55.0" layoutY="15.0" mnemonicParsing="false" text="哈哈镜" />
+                                    <Slider fx:id="sliderX" layoutX="230.0" layoutY="15.0" />
+                                    <Slider fx:id="sliderY" layoutX="230.0" layoutY="45.0" />
+                                    <Slider fx:id="sliderRadius" layoutX="230.0" layoutY="75.0" />
+                                    <Slider fx:id="sliderMultiple" layoutX="230.0" layoutY="105.0" />
+                                    <Label layoutX="175.0" layoutY="15.0" text="X" />
+                                    <Label layoutX="175.0" layoutY="45.0" text="Y" />
+                                    <Label layoutX="175.0" layoutY="75.0" text="半径" />
+                                    <Label layoutX="175.0" layoutY="105.0" text="倍率" />
+                                 </children></AnchorPane>
+                          </content>
+                        </ScrollPane>
+                     </content>
+                  </Tab>
+              </tabs>
+            </TabPane>
+         </bottom>
+         <center>
+            <ImageView fx:id="imageView" fitHeight="450.0" fitWidth="450.0" pickOnBounds="true" preserveRatio="true" BorderPane.alignment="CENTER" />
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>
